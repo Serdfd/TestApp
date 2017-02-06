@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Pages.LoginPage"
+             Title="Eventos"
+             BackgroundColor="{StaticResource AccentColor1}"
+             BindingContext="{Binding Login, Source={StaticResource Locator}}">>
+    <AbsoluteLayout>
+        <Image Source="logo_evento.png"
+               AbsoluteLayout.LayoutBounds="0.5,0,350,350"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+        </Image>
+        <Button Text="Sing it with Google"
+                TextColor="{StaticResource ButtonFontColor}"
+                FontAttributes="Bold"
+                BackgroundColor="{StaticResource AccentColor2}"
+                HeightRequest="60"
+                WidthRequest="200"
+                AbsoluteLayout.LayoutBounds="0.5,0.6,200,60"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="Button_Clicked">
+        </Button>
+        <Image Source="logo_personal.png"
+               HeightRequest="150"
+               WidthRequest="150"               
+               AbsoluteLayout.LayoutBounds="0.5,0.9,100,100"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+        </Image>
+    </AbsoluteLayout>    
+</ContentPage>

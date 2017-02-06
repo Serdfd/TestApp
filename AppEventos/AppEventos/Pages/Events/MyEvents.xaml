@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Pages.Events.MyEvents">
+    <AbsoluteLayout>
+        <ListView x:Name="listView"
+                  HasUnevenRows="True"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10,10,10,10">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                    VerticalOptions="Center"
+                                    Text="{Binding DisplayDate}"
+                                    FontSize="14"/>
+                            <Label Grid.Column="1"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               Text="{Binding Tittle}"
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                            <Image Grid.Column="2"
+                               HorizontalOptions="End"
+                               Source="config.png"
+                               WidthRequest="30"
+                               HeightRequest="30"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Image Source="add.png"
+               AbsoluteLayout.LayoutBounds="1,.99, 75, 75"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CreateEvent}" Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Pages.Events.ViewEvent"
+             Title="Ver evento">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" 
+                 Spacing="0"
+                 VerticalOptions="Start"
+                 Padding="10,10,10,10">
+            <Image x:Name="banner"
+               HeightRequest="150"
+               HorizontalOptions="FillAndExpand"/>
+            <Label Text="Nombre"/>
+            <Entry x:Name="name"
+               IsEnabled="False"
+               HorizontalTextAlignment="Start"
+               HorizontalOptions="FillAndExpand"/>
+            <Label Text="Fecha y hora"/>
+            <Entry x:Name="eventDate"
+               IsEnabled="False"
+               HorizontalTextAlignment="Start"
+               HorizontalOptions="FillAndExpand"/>
+            <Label Text="Descripción"/>
+            <Editor x:Name="eDescription"
+                    HeightRequest="60"
+                    IsEnabled="False"/>
+            <Label Text="Ubicación"/>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="location"
+               IsEnabled="False"
+               HorizontalTextAlignment="Start"
+               HorizontalOptions="FillAndExpand"/>
+                <Image Source="viewLocation.png"
+                   HeightRequest="50"
+                   WidthRequest="50">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectLocation}" Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label Text="Observación"/>
+            <Editor x:Name="eObservation"
+                    HeightRequest="60"
+                    IsEnabled="False"/>
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="10">
+                <Button Text="Asistiré"
+                    Image="checkmark.png"/>
+                <Button Text="No Asistiré"
+                    Image="delete_2.png"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

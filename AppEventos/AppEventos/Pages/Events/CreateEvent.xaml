@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Pages.Events.CreateEvent"
+             Title="Nuevo evento"
+             BindingContext="{Binding Event, Source={StaticResource Locator}}">
+    <ScrollView>
+        <StackLayout Padding="10,10,10,10"
+                 Orientation="Vertical"
+                 HorizontalOptions="StartAndExpand"
+                 VerticalOptions="Start"
+                 Spacing="5">       
+        <Label Text="Nombre"/>
+        <Entry x:Name="name"
+               IsEnabled="True"/>
+        <Grid ColumnSpacing="0"
+              RowSpacing="0"
+              Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   VerticalOptions="Start"
+                   Text="Fecha"/>
+            <DatePicker x:Name="dpEventDate"
+                        Date="{Binding dateDatePicker, Mode=TwoWay}"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start">
+                <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+            </DatePicker>
+            <Label Grid.Column="1"
+                   Grid.Row="0"
+                   VerticalOptions="Start"
+                   Text="Hora"/>
+            <TimePicker x:Name="tpEventTime"
+                        Time="{Binding timePicker, Mode=TwoWay}" 
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Format="HH:mm"/>
+        </Grid>
+        <Label Text="Descripción"/>
+        <Editor x:Name="eDescription"
+                HeightRequest="60"/>
+        <Button Text="Seleccionar imagen"
+                Clicked="OnUpload"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="40"
+                Image="picture.png"/>
+        <Label Text="Invitados"/>
+        <Picker x:Name="pGroup"
+                Title="Seleccionar grupo">
+            <Picker.Items>
+                <x:String>Todos</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label Text="Ubicación"/>
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="location"
+               IsEnabled="False"
+               HorizontalTextAlignment="Start"
+               HorizontalOptions="FillAndExpand"/>
+            <Image Source="location.png"
+                   HeightRequest="50"
+                   WidthRequest="50">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectLocation}" Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <Label Text="Observación"/>
+        <Editor x:Name="eObservation"
+                HeightRequest="60"/>
+        <Button Text="Guardar"
+                HorizontalOptions="Center"
+                WidthRequest="150"
+                Clicked="Save"
+                Image="save.pgn"/>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

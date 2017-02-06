@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:AppEventos.Infraestructure;assembly=AppEventos"
+             x:Class="AppEventos.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <!-- Locator -->
+      <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+      <!-- General colors -->
+      <Color x:Key="MainColor">#7D8A2E</Color>
+      <!-- blanco -->
+       <Color x:Key="ButtonFontColor">#FFFFFF</Color>
+        <!-- blanco -->
+        <Color x:Key="FontColor">#FFFFFF</Color>
+        <!-- naranja -->
+      <Color x:Key="AccentColor1">#ff931e</Color>
+      <!-- azul -->
+      <Color x:Key="AccentColor2">#007ded</Color>
+      <Color x:Key="BackgroundColor">#FFFFFF</Color>
+      <Color x:Key="DatePicker">#FFFFFF</Color>
+      <Color x:Key="Black">#000000</Color>
+            <Color x:Key="White">#FFFFFF</Color>
+            <!-- Menu colors -->
+      <Color x:Key="MenuColor">#FFFFFF</Color>
+        <Color x:Key="MenuFontColor">#000000</Color>
+            <Color x:Key="BannerFontColor">#06387f</Color>
+        <Color x:Key="ButtonColor">#007ded</Color>
+      <!-- Fonts -->
+      <OnPlatform x:Key="GeneralButtonFont" x:TypeArguments="Font" iOS="12" Android="14" WinPhone="16" />
+      <!-- Styles -->
+      <Style TargetType="Button">
+        <Setter Property="Font" Value="{StaticResource GeneralButtonFont}" />
+        <Setter Property="BorderRadius" Value="25" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="BackgroundColor" Value="{StaticResource AccentColor2}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

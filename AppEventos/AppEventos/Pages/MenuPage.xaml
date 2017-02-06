@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Pages.MenuPage"
+             Title="Menú"
+             BackgroundColor="{StaticResource MenuColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+    <AbsoluteLayout>
+        <Image Source="banner.png"
+               Aspect="AspectFill"
+               AbsoluteLayout.LayoutBounds="0,0,1,0.35"
+               AbsoluteLayout.LayoutFlags="All">                    
+        </Image>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0.1,1,0.35"
+                     AbsoluteLayout.LayoutFlags="All"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Start"
+                     Padding="10,10,0,0"
+                     Spacing="10">
+            <ic:CircleImage HeightRequest="70"
+                            WidthRequest="70"
+                            HorizontalOptions="Start"
+                            Aspect="AspectFill"
+                            BindingContext="{Binding UserLoged}"
+                            Source="{Binding Photo}"/>
+            <!--<BoxView HeightRequest="70"
+                     Opacity="100"></BoxView>-->
+            <Label BindingContext="{Binding UserLoged}"
+                   Text="{Binding FullName}"
+                   TextColor="{StaticResource BannerFontColor}"
+                   FontAttributes="Bold"
+                   FontSize="16"/>
+            <Label BindingContext="{Binding UserLoged}"
+                   Text="{Binding Email}"
+                   TextColor="{StaticResource BannerFontColor}"
+                   FontAttributes="Bold"
+                   FontSize="16"/>
+        </StackLayout>
+        <ListView ItemsSource="{Binding Menu}"
+                  HasUnevenRows="True"
+                  AbsoluteLayout.LayoutBounds="0,0.5,1,0.3"
+                  AbsoluteLayout.LayoutFlags="All">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10,10,0,0">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Icon}"
+                                    WidthRequest="40"
+                                    HeightRequest="40"/>
+                            <Label Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    TextColor="{StaticResource MenuFontColor}"
+                                    Text="{Binding Title}"
+                                    FontSize="16"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </AbsoluteLayout>    
+</ContentPage>
